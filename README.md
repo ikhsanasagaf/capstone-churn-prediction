@@ -45,11 +45,7 @@ Proyek ini dikerjakan melalui beberapa tahapan sistematis:
     * Train-Test Split.
 
 3.  **Pemodelan (Modeling):**
-    Dilakukan dalam 3 skenario (Direct, Preprocessed, Hyperparameter Tuning) menggunakan kategori model berikut:
-    * **Konvensional:** Logistic Regression / KNN / SVM.
-    * **Ensemble Bagging:** Random Forest.
-    * **Ensemble Voting:** Voting Classifier (Gabungan beberapa model).
-    * *Tambahan:* XGBoost (berdasarkan eksperimen di notebook).
+    Dilakukan dalam 3 skenario (Direct, Preprocessed, Hyperparameter Tuning)
 
 4.  **Evaluasi:**
     Menggunakan metrik: Accuracy, Precision, Recall, F1-Score, dan Confusion Matrix untuk memilih model terbaik.
@@ -64,35 +60,6 @@ Proyek ini dikerjakan melalui beberapa tahapan sistematis:
 * **Visualisasi:** Matplotlib, Seaborn
 * **Machine Learning:** Scikit-Learn, XGBoost, Imbalanced-learn (SMOTE)
 * **Deployment:** Streamlit Cloud
-
-## 🚀 Cara Menjalankan Project (Lokal)
-
-Ikuti langkah-langkah ini untuk menjalankan proyek di komputer lokal Anda:
-
-1.  **Clone Repositori ini:**
-    ```bash
-    git clone [https://github.com/username-anda/capstone-churn-prediction.git](https://github.com/username-anda/capstone-churn-prediction.git)
-    cd capstone-churn-prediction
-    ```
-
-2.  **Buat Virtual Environment (Opsional tapi disarankan):**
-    ```bash
-    python -m venv venv
-    # Windows
-    venv\Scripts\activate
-    # Mac/Linux
-    source venv/bin/activate
-    ```
-
-3.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4.  **Jalankan Aplikasi Streamlit:**
-    ```bash
-    streamlit run app.py
-    ```
 
 ## 📊 Hasil Evaluasi Model
 
