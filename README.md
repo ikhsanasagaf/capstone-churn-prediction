@@ -81,7 +81,7 @@ Model **Logistic Regression (Tuned)** dipilih sebagai model final untuk deployme
 ## 🌐 Link Deployment
 
 Aplikasi prediksi churn dapat diakses secara publik melalui tautan berikut:
-**[Link ke Aplikasi Streamlit Anda]**
+**[[Link Deployment]](https://capstone-churn-prediction-by-ikhsan.streamlit.app/)**
 
 ## 👤 Author
 
