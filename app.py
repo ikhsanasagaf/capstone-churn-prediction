@@ -16,13 +16,11 @@ st.set_page_config(
 st.markdown("""
 <style>
     .metric-card {
-        background-color: #f0f2f6;
+        background-color: #F8F9FA;
         padding: 20px;
         border-radius: 10px;
-        border-left: 5px solid #ff4b4b;
-    }
-    .stProgress > div > div > div > div {
-        background-color: #ff4b4b;
+        border-left: 5px solid #007BFF; /* Sesuaikan dengan primaryColor */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }          
     .status-box {
         padding: 30px;
