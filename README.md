@@ -30,48 +30,53 @@ Dataset yang digunakan adalah **Telco Customer Churn** yang bersumber dari Kaggl
 
 ## 🛠️ Metodologi
 
-Proyek ini dikerjakan melalui beberapa tahapan sistematis:
+Proyek ini dikerjakan melalui beberapa tahapan sistematis untuk memastikan validitas model:
 
-1.  **Exploratory Data Analysis (EDA):**
-    * Pengecekan statistik deskriptif dan tipe data.
-    * Identifikasi *missing values* (terutama pada `TotalCharges`).
-    * Visualisasi distribusi target (`Churn`) untuk melihat keseimbangan kelas.
-    * Analisis korelasi antar fitur numerik.
-
-2.  **Preprocessing Data:**
-    * Cleaning data (menangani nilai kosong, duplikasi, dan outlier).
-    * Encoding fitur kategorikal (One-Hot Encoding / Label Encoding).
-    * Scaling fitur numerik.
-    * Train-Test Split.
-
-3.  **Pemodelan (Modeling):**
-    Dilakukan dalam 3 skenario (Direct, Preprocessed, Hyperparameter Tuning)
-
-4.  **Evaluasi:**
-    Menggunakan metrik: Accuracy, Precision, Recall, F1-Score, dan Confusion Matrix untuk memilih model terbaik.
-
-5.  **Deployment:**
-    Model terbaik disimpan (format `.pkl` atau `.joblib`) dan diintegrasikan ke dalam aplikasi web menggunakan **Streamlit**.
+1. **Exploratory Data Analysis (EDA):**
+* Pengecekan statistik deskriptif dan tipe data.
+* Identifikasi *missing values* (khususnya penanganan data kosong pada `TotalCharges`).
+* Visualisasi distribusi target (`Churn`) yang menunjukkan ketidakseimbangan data (Imbalanced Data).
+* Analisis korelasi antar fitur numerik.
+2. **Preprocessing Data:**
+* **Data Cleaning:** Menangani nilai kosong dan memastikan konsistensi tipe data.
+* **Encoding:** Menggunakan *One-Hot Encoding* untuk fitur kategorikal nominal (seperti `PaymentMethod`, `InternetService`) agar dapat diproses oleh algoritma numerik.
+* **Scaling:** Menerapkan *StandardScaler* pada fitur numerik untuk meningkatkan performa model.
+* **Splitting:** Membagi data menjadi Training (80%) dan Testing (20%).
+3. **Pemodelan (Modeling):**
+Dilakukan dalam 3 skenario perbandingan untuk melihat dampak preprocessing dan optimasi:
+* **Tahap 1:** Direct Modeling.
+* **Tahap 2:** Modeling setelah Preprocessing.
+* **Tahap 3:** Hyperparameter Tuning menggunakan `GridSearchCV`.
+* **Algoritma yang digunakan:** Logistic Regression, Random Forest, dan Voting Classifier (Soft Voting: LR + RF + KNN).
+4. **Evaluasi:**
+Menggunakan confusion matrix yang berfokus pada **Recall** dan **F1-Score** (kelas Churn).
+5. **Deployment:**
+Model terbaik (**Logistic Regression Tuned**) disimpan dalam format `.pkl` dan diintegrasikan ke dalam aplikasi web interaktif menggunakan **Streamlit**.
 
 ## 💻 Teknologi yang Digunakan
 
 * **Bahasa Pemrograman:** Python
 * **Data Manipulation:** Pandas, NumPy
 * **Visualisasi:** Matplotlib, Seaborn
-* **Machine Learning:** Scikit-Learn, XGBoost, Imbalanced-learn (SMOTE)
+* **Machine Learning:** Scikit-Learn
 * **Deployment:** Streamlit Cloud
 
 ## 📊 Hasil Evaluasi Model
 
-*(Bagian ini akan diisi setelah proses training selesai. Contoh format:)*
+Berikut adalah perbandingan performa model setelah dilakukan **Hyperparameter Tuning**.
 
-| Model | Accuracy | Precision | Recall | F1-Score |
-| :--- | :---: | :---: | :---: | :---: |
-| Logistic Regression | 80% | 0.xx | 0.xx | 0.xx |
-| **Random Forest (Tuned)** | **82%** | **0.xx** | **0.xx** | **0.xx** |
-| Voting Classifier | 81% | 0.xx | 0.xx | 0.xx |
+| Model | Accuracy | Precision (Churn) | Recall (Churn) | F1-Score (Churn) |
+| --- | --- | --- | --- | --- |
+| **Logistic Regression (Tuned)** | **83%** | **0.63** | **0.59** | **0.61** |
+| Random Forest (Tuned) | 81% | 0.60 | 0.53 | 0.56 |
+| Voting Classifier (Tuned) | 82% | 0.61 | 0.56 | 0.58 |
 
-*Model terbaik yang dipilih untuk deployment adalah: [Nama Model]*
+### 🏆 Model Terpilih
+
+Model **Logistic Regression (Tuned)** dipilih sebagai model final untuk deployment karena:
+
+1. Memiliki **F1-Score kelas Churn tertinggi (0.61)** dan **Recall tertinggi (0.59)** dibandingkan model lainnya.
+2. Mampu mendeteksi pelanggan berisiko (Churn) dengan lebih baik.
 
 ## 🌐 Link Deployment
 
